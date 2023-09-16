@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set color scheme to "light" when data-color-scheme attribute is "light" */
+[data-color-scheme="light"] {
+  color-scheme: light;
+}
+
+/* Set color scheme to "dark" when data-color-scheme attribute is "dark" */
+[data-color-scheme="dark"] {
+  color-scheme: dark;
+}
+
+/* Font size of playing card suits */
+.suit {
+  font-size: 1rem;
+}
+
+/* Font size of playing card suits specific to Chrome browser */
+.suit-chrome {
+  font-size: 2rem;
+}
+
+/* Smooth hover effect transition */
+.transition-hover {
+  transition: background-color 0.2s ease;
+}
+
+/* Styling used for many icon buttons */
+.icon-button {
+  border-radius: 9999px; /* rounded-full */
+}
+
+.icon-button:hover {
+  background-color: #1cb454; /* bg-lightHover or bg-green-550 */
+}
+
+.icon-button:active {
+  background-color: #16a34a; /* bg-lightSecondary or bg-green-600 */
+}
+
+.dark .icon-button:hover {
+  background-color: #262626; /* bg-darkHover or bg-neutral-800 */
+}
+
+.dark .icon-button:active {
+  background-color: #404040; /* bg-darkSecondary or bg-neutral-700 */
+}
+
+/* Styling used for all toggles */
+.toggle {
+  padding: 0.625rem; /* p-2.5 */
+}
+
+.toggle:focus {
+  background-color: #16a34a; /* bg-lightSecondary or bg-green-600 */
+  outline: none;
+}
+
+.dark .toggle:focus {
+  background-color: #404040; /* bg-darkSecondary or bg-neutral-700 */
+}
+
+/* Styling used for all toggles' icon */
+.toggle-icon {
+  height: 1.75rem; /* h-7 */
+  width: 1.75rem; /* w-7 */
+}
+
+/* Styling used for many icons displayed alongside text */
+.text-icon {
+  height: 1rem; /* h-4 */
+  width: 1rem; /* w-4 */
+}
+
+/* Styling used for content of all tooltips */
+.tooltip-content {
+  background-color: #525252; /* bg-neutral-600 */
+  border-radius: 0.25rem; /* rounded */
+  color: #ffffff; /* text-white */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* text-sm */
+  opacity: 0.9; /* opacity-90 */
+  padding-bottom: 0.625rem; /* pb-2.5 */
+  padding-left: 0.5rem; /* pl-2 */
+  padding-right: 0.5rem; /* pr-2 */
+  padding-top: 0.625rem; /* pt-2.5 */
+  user-select: none; /* select-none */
+  will-change: transform, opacity; /* will-change-[transform,opacity] */
+  z-index: 30; /* z-30 */
+}
+
+[data-state="delayed-open"][data-side="bottom"] .tooltip-content {
+  animation: tooltipSlideUpAndFade; /* data-[state=delayed-open]:data-[side=bottom]:animate-tooltipSlideUpAndFade */
+}
+
+[data-state="delayed-open"][data-side="left"] .tooltip-content {
+  animation: tooltipSlideRightAndFade; /* data-[state=delayed-open]:data-[side=left]:animate-tooltipSlideRightAndFade */
+}
+
+[data-state="delayed-open"][data-side="right"] .tooltip-content {
+  animation: tooltipSlideLeftAndFade; /* data-[state=delayed-open]:data-[side=right]:animate-tooltipSlideLeftAndFade */
+}
+
+[data-state="delayed-open"][data-side="top"] .tooltip-content {
+  animation: tooltipSlideDownAndFade; /* data-[state=delayed-open]:data-[side=top]:animate-tooltipSlideDownAndFade */
+}
+
+/* Styling for subheaders in GameDialog */
+.game-dialog-subheader {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  line-height: 1.75rem; /* text-xl */
+  margin-bottom: 0.25rem; /* mb-1 */
+}

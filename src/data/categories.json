@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nameSingular": "Enkel",
+    "namePlural": "Enkle",
+    "icon": "👶",
+    "order": 1
+  },
+  {
+    "id": 2,
+    "nameSingular": "Avansert",
+    "namePlural": "Avanserte",
+    "icon": "👨",
+    "order": 2
+  },
+  {
+    "id": 3,
+    "nameSingular": "Casino",
+    "namePlural": "Casino",
+    "icon": "🎰",
+    "order": 4
+  },
+  {
+    "id": 4,
+    "nameSingular": "Ren flaks",
+    "namePlural": "Ren flaks",
+    "icon": "🍀",
+    "order": 5
+  },
+  {
+    "id": 5,
+    "nameSingular": "Under 15 min",
+    "namePlural": "Under 15 min",
+    "icon": "🕒",
+    "order": 3
+  }
+]
