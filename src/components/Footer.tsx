@@ -11,7 +11,7 @@ const Footer: React.FC = () => (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/msigurdsen"
+        href="https://github.com/msigurdsen/Kortspillguiden.no"
         className="inline-flex align-top gap-0.5 underline"
       >
         <GitHubLogoIcon className="mt-1" />
