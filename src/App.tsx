@@ -9,14 +9,14 @@ import useDarkMode from "./hooks/useDarkMode"
 import GameDialog from "./components/GameDialog"
 
 const App: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams({ game: "" })
   const { darkMode, toggleDarkMode } = useDarkMode()
   const [selectedPlayerAmount, setSelectedPlayerAmount] = useState<number>(0)
   const [selectedCategory, setSelectedCategory] = useState<number>(0)
   const [selectedGame, setSelectedGame] = useState<Game | null>(null)
 
   // Change page title when selectedGame state changes
-  useEffect(() => {
+  useEffect((): void => {
     // If a game is displayed, include game name in title
     if (selectedGame) {
       document.title = selectedGame.name + " - Kortspillguiden"
@@ -29,24 +29,24 @@ const App: React.FC = () => {
 
   // Set query parameters to selected game id if a game is selected,
   // or leave blank if not
-  const updateQueryParams = () => {
+  const updateQueryParams = (): void => {
     const params = new URLSearchParams()
 
     if (selectedGame) {
       params.set("game", selectedGame.id.toString())
     }
 
-    setSearchParams(params)
+    setSearchParams(params, { replace: true })
   }
 
   // Update query parameters when selectedGame state changes
-  useEffect(() => {
+  useEffect((): void => {
     updateQueryParams()
   }, [selectedGame])
 
   // Get game id from the query parameters from the URL and set selected game
   // based on game id when the component mounts
-  useEffect(() => {
+  useEffect((): void => {
     const gameParam = searchParams.get("game")
 
     if (gameParam) {
@@ -64,7 +64,7 @@ const App: React.FC = () => {
     games: Game[],
     selectedPlayerAmount: number,
     selectedCategory: number,
-  ) => {
+  ): Game[] => {
     let filteredGames = games
 
     // Filter games by selected player amount if set
@@ -87,7 +87,7 @@ const App: React.FC = () => {
   }
 
   // Get filtered games
-  const filteredGames = filterGames(
+  const filteredGames: Game[] = filterGames(
     games,
     selectedPlayerAmount,
     selectedCategory,

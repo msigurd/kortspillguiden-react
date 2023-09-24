@@ -15,9 +15,9 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({
     if (!containerRef.current) return
 
     // Width of category selection component
-    const containerWidth = containerRef.current.clientWidth
+    const containerWidth: number = containerRef.current.clientWidth
     // Extra padding added to the scroll position
-    const bufferPadding = 192
+    const bufferPadding: number = 192
 
     // If direction is "left", scroll to the left
     if (direction === "left") {

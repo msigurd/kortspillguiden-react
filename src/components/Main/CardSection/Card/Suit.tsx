@@ -24,7 +24,7 @@ const Suit: React.FC<SuitProps> = ({ index, className }) => {
   }
 
   // Apply larger font size for suits on Chrome browser
-  useEffect(() => {
+  useEffect((): void => {
     // Check if the user is using Chrome
     if (/chrome/i.test(navigator.userAgent)) {
       // Select suits and apply the Chrome suit class
