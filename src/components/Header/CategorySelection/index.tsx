@@ -26,7 +26,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
     }
   }, [selectedCategory])
 
-  // Set new max scroll when container is resized
+  // When container is resized, set new max scroll
   useEffect(() => {
     // Set initial max scroll
     handleResize()
@@ -34,7 +34,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
     // Add event listener for handling container resize
     window.addEventListener("resize", handleResize)
 
-    // Remove event listener when component unmounts
+    // When component unmounts, remove event listener
     return () => {
       window.removeEventListener("resize", handleResize)
     }

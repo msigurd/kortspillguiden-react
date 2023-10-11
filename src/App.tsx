@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { useSearchParams } from "react-router-dom"
 import games from "./data/games.json"
 import { Game } from "./types"
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<number>(0)
   const [selectedGame, setSelectedGame] = useState<Game | null>(null)
 
-  // Change page title when selectedGame state changes
+  // When selectedGame state changes, change page title
   useEffect((): void => {
     // If a game is displayed, include game name in title
     if (selectedGame) {
@@ -27,25 +27,26 @@ const App: React.FC = () => {
     document.title = "Kortspillguiden"
   }, [selectedGame])
 
-  // Set query parameters to selected game id if a game is selected,
-  // or leave blank if not
+  // Set query parameters
   const updateQueryParams = (): void => {
     const params = new URLSearchParams()
 
+    // If a game is selected, set parameters to selected game id
     if (selectedGame) {
       params.set("game", selectedGame.id.toString())
     }
 
+    // If a game isn't selected, leave parameters blank
     setSearchParams(params, { replace: true })
   }
 
-  // Update query parameters when selectedGame state changes
+  // When selectedGame state changes, update query parameters
   useEffect((): void => {
     updateQueryParams()
   }, [selectedGame])
 
-  // Get game id from the query parameters from the URL and set selected game
-  // based on game id when the component mounts
+  // When the component mounts, get game id from the query parameters
+  // from the URL and set selected game based on game id
   useEffect((): void => {
     const gameParam = searchParams.get("game")
 
@@ -87,10 +88,9 @@ const App: React.FC = () => {
   }
 
   // Get filtered games
-  const filteredGames: Game[] = filterGames(
-    games,
-    selectedPlayerAmount,
-    selectedCategory,
+  const filteredGames: Game[] = useMemo(
+    () => filterGames(games, selectedPlayerAmount, selectedCategory),
+    [games, selectedPlayerAmount, selectedCategory],
   )
 
   return (

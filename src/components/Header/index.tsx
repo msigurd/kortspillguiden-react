@@ -74,15 +74,18 @@ const Header: React.FC<HeaderProps> = ({
     // top area
     document.addEventListener("mousedown", handleClickOutside)
 
-    // Remove event listener when component unmounts
+    // When component unmounts, remove event listener
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
 
   return (
-    <div className="flex h-30 flex-col justify-center bg-lightPrimary dark:bg-darkPrimary">
-      <div ref={headerTopRef} className="flex h-3/6 items-center gap-5">
+    <div className="flex h-30 flex-col gap-2 justify-center bg-lightPrimary dark:bg-darkPrimary">
+      <div
+        ref={headerTopRef}
+        className="flex h-3/6 items-center gap-5 desktop:gap-14"
+      >
         <div
           className={`${hideOnSearchExpanded(
             searchExpanded,
@@ -102,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({
         <div
           className={`${showOnSearchExpanded(
             searchExpanded,
-          )} w-full desktop:mx-auto desktop:block desktop:pl-16 desktop:pr-24`}
+          )} w-full desktop:mx-auto desktop:block`}
         >
           <SearchBar
             inputRef={searchInputRef}
@@ -129,12 +132,10 @@ const Header: React.FC<HeaderProps> = ({
           <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
       </div>
-      <div className="mt-2">
-        <CategorySelection
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-      </div>
+      <CategorySelection
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
     </div>
   )
 }

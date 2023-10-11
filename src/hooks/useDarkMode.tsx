@@ -16,7 +16,7 @@ const useDarkMode = () => {
     document.documentElement.setAttribute("data-color-scheme", "light")
   }, [darkMode])
 
-  // Set to dark mode if user's system preference is set to dark mode
+  // If user's system preference is set to dark mode, set theme to dark mode
   useEffect((): void => {
     const darkModePreference = window.matchMedia(
       "(prefers-color-scheme: dark)",

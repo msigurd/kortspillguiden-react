@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Game } from "../../types"
 
 interface RandomGameButtonProps {
@@ -10,36 +10,38 @@ const RandomGameButton: React.FC<RandomGameButtonProps> = ({
   filteredGames,
   setSelectedGame,
 }) => {
-  const [previousGame, setPreviousGame] = useState<Game | null>(null)
+  const [shuffledGames, setShuffledGames] = useState<Game[]>([])
+  const [shuffleIndex, setShuffleIndex] = useState<number>(0)
 
-  // Get a random game from the filtered games array
-  const getRandomGame = (filteredGames: Game[]): Game => {
-    const randomIndex = Math.floor(Math.random() * filteredGames.length)
-    const randomGame = filteredGames[randomIndex]
-    return randomGame
+  // Randomize array in-place using Durstenfeld shuffle algorithm
+  // Source: https://stackoverflow.com/a/12646864
+  const shuffleGames = (games: Game[]): Game[] => {
+    for (let i = games.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[games[i], games[j]] = [games[j], games[i]]
+    }
+
+    return games
   }
+
+  // When filtered games change, shuffle games
+  useEffect((): void => {
+    setShuffledGames(shuffleGames(filteredGames))
+  }, [filteredGames])
 
   // Handle click event
   const handleClick = (): void => {
-    let randomGame: Game | null = null
-
-    // Only one game filtered
-    if (filteredGames.length === 1) {
-      // Get random game
-      randomGame = getRandomGame(filteredGames)
-    }
-
-    // More than one game filtered
-    if (filteredGames.length > 1) {
-      // Get random game until it's different from the last
-      do {
-        randomGame = getRandomGame(filteredGames)
-      } while (randomGame === previousGame)
-    }
-
-    setPreviousGame(randomGame)
-    setSelectedGame(randomGame)
+    setSelectedGame(shuffledGames[shuffleIndex])
+    setShuffleIndex((shuffleIndex) => shuffleIndex + 1)
   }
+
+  // When button is clicked, and shuffle index is at the end of
+  // or outside shuffled games array, reset shuffle index
+  useEffect((): void => {
+    if (shuffleIndex >= shuffledGames.length) {
+      setShuffleIndex(0)
+    }
+  }, [handleClick])
 
   return (
     <button

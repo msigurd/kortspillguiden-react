@@ -1,3 +1,4 @@
+import { useMemo } from "react"
 import { Game } from "../../types"
 import CardSection from "./CardSection"
 import RandomGameButton from "./RandomGameButton"
@@ -47,7 +48,9 @@ const Main: React.FC<MainProps> = ({ filteredGames, setSelectedGame }) => {
   }
 
   // Get card sections
-  const cardSections: JSX.Element[] = renderCardSections(filteredGames)
+  const cardSections: JSX.Element[] = useMemo(() => {
+    return renderCardSections(filteredGames)
+  }, [filteredGames])
 
   return cardSections.length > 0 ? (
     <div className="flex flex-col">

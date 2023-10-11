@@ -156,7 +156,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     // Add event listener for keyup event to handle key releases
     document.addEventListener("keyup", handleKeyUp)
 
-    // Remove event listeners when component unmounts
+    // When component unmounts, remove event listeners
     return () => {
       document.removeEventListener("click", handleClickOutside)
       document.removeEventListener("keydown", handleKeyDown)
