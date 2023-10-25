@@ -11,7 +11,7 @@ const Footer: React.FC = () => (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/msigurdsen/Kortspillguiden.no"
+        href="https://github.com/msigurd/Kortspillguiden.no"
         className="inline-flex align-top gap-0.5 underline"
       >
         <GitHubLogoIcon className="mt-1" />
@@ -24,7 +24,7 @@ const Footer: React.FC = () => (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.linkedin.com/in/markus-midtlien-sigurdsen-14363b291"
+        href="https://www.linkedin.com/in/msigurd"
         className="underline"
       >
         Markus Midtlien Sigurdsen

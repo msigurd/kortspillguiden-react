@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({
     <div className="flex h-30 flex-col gap-2 justify-center bg-lightPrimary dark:bg-darkPrimary">
       <div
         ref={headerTopRef}
-        className="flex h-3/6 items-center gap-5 desktop:gap-14"
+        className="flex h-3/6 items-center gap-5 desktop:gap-28"
       >
         <div
           className={`${hideOnSearchExpanded(

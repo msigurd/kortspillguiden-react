@@ -76,7 +76,7 @@ const GameDialog: React.FC<GameDialogProps> = ({ game, setSelectedGame }) => {
             <GameSetupSVG
               name={game.svg}
               aria-label={`Oppsett for ${game.name}`}
-              className="w-full h-fit max-h-64 mt-3 mb-5"
+              className="mx-auto w-full h-fit max-w-sm max-h-64 mt-3 mb-5"
             />
             {game.lowestCard.length > 0 && game.highestCard.length > 0 && (
               <div className="bg-amber-300 text-black rounded-md py-2 px-3 flex flex-col gap-2 mb-4 max-w-fit">
