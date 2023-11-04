@@ -14,7 +14,7 @@ const PlayerSelectItem: React.FC<PlayerSelectItemProps> = ({
   setSelectedPlayerAmount,
   renderPlayers,
 }) => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setSelectedPlayerAmount(players)
   }

@@ -24,7 +24,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   const [showResults, setShowResults] = useState<boolean>(false)
   const searchResultsRef = useRef<HTMLDivElement>(null)
 
-  // Handle input state
+  /** Handle search */
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchText(event.target.value)
 
@@ -50,7 +50,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }
   }
 
-  // Handle clear
+  /** Handle clear */
   const handleClear = (): void => {
     // Clear search text
     setSearchText("")
@@ -64,13 +64,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }, 250)
   }
 
-  // Handle search input's focus and click events
+  /** Handle search input's focus and click events */
   const handleFocusAndClick = (): void => {
     setShowResults(true)
     setSearchExpanded(true)
   }
 
-  // Handle search input's blur event
+  /** Handle search input's blur event */
   const handleBlur = (): void => {
     // If screen size is wider than mobile width, set searchExpanded to false on blur
     if (window.innerWidth > 768) {
@@ -78,7 +78,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }
   }
 
-  // Handle click outside search input and -results
+  /** Handle click outside search input and -results */
   const handleClickOutside = useCallback(
     (event: MouseEvent): void => {
       let wasSearchToggleClicked = false
@@ -105,7 +105,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     [searchToggleClicked],
   )
 
-  // Handle keydown events
+  /** Handle keydown events */
   const handleKeyDown = useCallback(
     (event: KeyboardEvent): void => {
       // Handle "Escape" key press event
@@ -129,7 +129,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     [searchResults, showResults],
   )
 
-  // Handle keyup events
+  /** Handle keyup events */
   const handleKeyUp = useCallback(
     (event: KeyboardEvent): void => {
       // Handle "Enter" key release event

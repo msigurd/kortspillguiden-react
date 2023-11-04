@@ -1,28 +1,24 @@
 import { Category } from "../types"
 
-// Render a game's player amount
+/** Render a game's player amount */
 export const renderGamePlayers = (
   minPlayers: number,
   maxPlayers: number,
 ): string => {
-  if (minPlayers === maxPlayers) {
-    return minPlayers.toString()
-  }
+  if (minPlayers === maxPlayers) return minPlayers.toString()
 
   // Range of possible players
   return minPlayers + "-" + maxPlayers
 }
 
-// Render aria label for a game's player amount
+/** Render aria label for a game's player amount */
 export const renderGamePlayersAriaLabel = (
   minPlayers: number,
   maxPlayers: number,
 ): string => {
   if (minPlayers === maxPlayers) {
     // Singular
-    if (minPlayers === 1) {
-      return minPlayers.toString() + " spiller"
-    }
+    if (minPlayers === 1) return minPlayers.toString() + " spiller"
 
     // Plural
     return minPlayers.toString() + " spillere"
@@ -32,7 +28,7 @@ export const renderGamePlayersAriaLabel = (
   return minPlayers + " til " + maxPlayers + " spillere"
 }
 
-// Render a game's aliases
+/** Render a game's aliases */
 export const renderGameAliases = (aliases: string[]): JSX.Element => {
   // Separate each alias with a comma
   const formattedAliases = aliases.join(", ")
@@ -45,7 +41,7 @@ export const renderGameAliases = (aliases: string[]): JSX.Element => {
   )
 }
 
-// Sort categories by their order value
+/** Sort categories by their order value */
 export const sortCategoriesByOrder = (categories: Category[]): Category[] => {
   return categories.sort((a, b) => a.order - b.order)
 }

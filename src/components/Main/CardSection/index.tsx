@@ -12,26 +12,18 @@ const CardSection: React.FC<CardSectionProps> = ({
   players,
   setSelectedGame,
 }) => {
-  // Check if any games in the section have a varied player amount
+  /** Return true if any games in the section have a varied player amount */
   const gameWithVaryingPlayers = (games: Game[]): boolean => {
-    for (const game of games) {
-      if (game.maxPlayers > game.minPlayers) {
-        return true
-      }
-    }
-
-    return false
+    return games.some((game) => game.maxPlayers > game.minPlayers)
   }
 
-  // Render card section's header
+  /** Render card section's header */
   const renderSectionHeader = (games: Game[], players: number): string => {
     // If no games in the section have a varied player amount,
     // don't add a plus symbol
     if (!gameWithVaryingPlayers(games)) {
-      if (players === 1) {
-        // Singular
-        return players + " spiller"
-      }
+      // Singular
+      if (players === 1) return players + " spiller"
 
       // Plural
       return players + " spillere"

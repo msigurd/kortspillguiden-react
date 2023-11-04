@@ -13,8 +13,8 @@ const RandomGameButton: React.FC<RandomGameButtonProps> = ({
   const [shuffledGames, setShuffledGames] = useState<Game[]>([])
   const [shuffleIndex, setShuffleIndex] = useState<number>(0)
 
-  // Randomize array in-place using Durstenfeld shuffle algorithm
-  // Source: https://stackoverflow.com/a/12646864
+  /** Randomize array in-place using Durstenfeld shuffle algorithm
+   *  Source: https://stackoverflow.com/a/12646864 */
   const shuffleGames = (games: Game[]): Game[] => {
     for (let i = games.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
@@ -29,7 +29,7 @@ const RandomGameButton: React.FC<RandomGameButtonProps> = ({
     setShuffledGames(shuffleGames(filteredGames))
   }, [filteredGames])
 
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setSelectedGame(shuffledGames[shuffleIndex])
     setShuffleIndex((shuffleIndex) => shuffleIndex + 1)
@@ -38,9 +38,7 @@ const RandomGameButton: React.FC<RandomGameButtonProps> = ({
   // When button is clicked, and shuffle index is at the end of
   // or outside shuffled games array, reset shuffle index
   useEffect((): void => {
-    if (shuffleIndex >= shuffledGames.length) {
-      setShuffleIndex(0)
-    }
+    if (shuffleIndex >= shuffledGames.length) setShuffleIndex(0)
   }, [handleClick])
 
   return (

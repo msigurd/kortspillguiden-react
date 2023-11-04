@@ -12,7 +12,7 @@ const SearchToggle: React.FC<SearchToggleProps> = ({
   setSearchExpanded,
   setSearchToggleClicked,
 }) => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setSearchExpanded(!searchExpanded)
     setSearchToggleClicked(true)

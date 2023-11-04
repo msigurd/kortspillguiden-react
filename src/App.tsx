@@ -27,7 +27,7 @@ const App: React.FC = () => {
     document.title = "Kortspillguiden"
   }, [selectedGame])
 
-  // Set query parameters
+  /** Set query parameters */
   const updateQueryParams = (): void => {
     const params = new URLSearchParams()
 
@@ -60,7 +60,7 @@ const App: React.FC = () => {
     }
   }, [])
 
-  // Filter games by selected player amount and category
+  /** Filter games by selected player amount and category */
   const filterGames = (
     games: Game[],
     selectedPlayerAmount: number,

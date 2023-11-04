@@ -10,7 +10,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({
   direction,
   containerRef,
 }) => {
-  // Handle scroll event
+  /** Handle scroll event */
   const handleScroll = (): void => {
     if (!containerRef.current) return
 
@@ -36,11 +36,9 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({
     })
   }
 
-  // Render position for scroll button based on value of direction parameter
+  /** Render position for scroll button based on value of direction parameter */
   const renderPosition = (direction: "left" | "right"): string => {
-    if (direction === "left") {
-      return "left-0 justify-start bg-gradient-to-r"
-    }
+    if (direction === "left") return "left-0 justify-start bg-gradient-to-r"
 
     return "right-0 justify-end bg-gradient-to-l"
   }

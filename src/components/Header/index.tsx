@@ -31,22 +31,18 @@ const Header: React.FC<HeaderProps> = ({
   const headerTopRef = useRef<HTMLDivElement>(null)
   const [searchToggleClicked, setSearchToggleClicked] = useState<boolean>(false)
 
-  // If search bar is expanded on smaller screen sizes, hide content,
-  // if not, show it
+  /** If search bar is expanded on smaller screen sizes, hide content,
+   *  if not, show it */
   const hideOnSearchExpanded = (searchExpanded: boolean): string => {
-    if (searchExpanded) {
-      return "hidden"
-    }
+    if (searchExpanded) return "hidden"
 
     return ""
   }
 
-  // If search bar is expanded on smaller screen sizes, show content,
-  // if not, hide it
+  /** If search bar is expanded on smaller screen sizes, show content,
+   *  if not, hide it */
   const showOnSearchExpanded = (searchExpanded: boolean): string => {
-    if (!searchExpanded) {
-      return "hidden"
-    }
+    if (!searchExpanded) return "hidden"
 
     return ""
   }
@@ -58,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
     }
   }, [searchExpanded])
 
-  // Handle click outside header's top area
+  /** Handle click outside header's top area */
   const handleClickOutside = (event: MouseEvent): void => {
     if (
       headerTopRef.current &&

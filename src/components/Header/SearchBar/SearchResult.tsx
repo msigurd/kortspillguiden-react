@@ -19,13 +19,13 @@ const SearchResult: React.FC<SearchResultProps> = ({
   searchText,
   setSelectedGame,
 }) => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setShowResults(false)
     setSelectedGame(game)
   }
 
-  // Format game name
+  /** Format game name */
   const formatGameName = (name: string, searchText: string): JSX.Element => {
     searchText = searchText.toLowerCase().trim()
     const index = name.toLowerCase().indexOf(searchText)

@@ -20,9 +20,7 @@ const GameSetupSVG: React.FC<GameSetupSVGProps> = ({
     svgModule[`../../statics/game-setups/${name}.svg`]?.ReactComponent
 
   // If the SVG component doesn't exist, return null
-  if (!SvgComponent) {
-    return null
-  }
+  if (!SvgComponent) return null
 
   return <SvgComponent aria-label={ariaLabel} className={className} />
 }

@@ -1,7 +1,7 @@
 import LogoCards from "./LogoCards"
 
 const Logo: React.FC = () => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     window.location.reload()
   }

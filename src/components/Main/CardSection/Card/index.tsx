@@ -13,7 +13,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ game, index, setSelectedGame }) => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setSelectedGame(game)
   }

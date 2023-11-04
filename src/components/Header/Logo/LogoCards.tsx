@@ -7,22 +7,18 @@ const LogoCards: React.FC<LogoCardsProps> = ({ text, firstCharBlack }) => {
   // Split text into letters
   const letters: string[] = text.split("")
 
-  // Render a card's text color and position based on the given index
+  /** Render a card's text color and position based on the given index */
   const renderCardTextColorAndPosition = (index: number): string => {
     // Component is set to have a black first character (firstCharBlack === true)
     if (firstCharBlack) {
       // Apply different styling for even and odd index cards
-      if (index % 2 === 0) {
-        return "text-black translate-y-px z-10"
-      }
+      if (index % 2 === 0) return "text-black translate-y-px z-10"
 
       return "text-red-600 -translate-y-px"
     }
 
     // Apply different styling for even and odd index cards
-    if (index % 2 === 0) {
-      return "text-red-600 -translate-y-px"
-    }
+    if (index % 2 === 0) return "text-red-600 -translate-y-px"
 
     return "text-black translate-y-px z-10"
   }

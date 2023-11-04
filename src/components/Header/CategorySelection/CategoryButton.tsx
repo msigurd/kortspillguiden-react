@@ -11,20 +11,19 @@ const CategoryButton: React.FC<CategoryButtonProps> = ({
   selectedCategory,
   setSelectedCategory,
 }) => {
-  // Handle click event
+  /** Handle click event */
   const handleClick = (): void => {
     setSelectedCategory(id)
   }
 
-  // Render default colors of text and background
-  // unless the category is currently selected
+  /** Render default colors of text and background
+   *  unless the category is currently selected */
   const renderTextAndBackgroundColor = (
     id: number,
     selectedCategory: number,
   ): string => {
-    if (id === selectedCategory) {
+    if (id === selectedCategory)
       return "bg-neutral-950 text-white hover:bg-black dark:bg-slate-50 dark:text-black dark:hover:bg-white"
-    }
 
     return "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 focus:bg-neutral-200 dark:focus:bg-neutral-700"
   }

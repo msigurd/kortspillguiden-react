@@ -15,7 +15,7 @@ interface GameDialogProps {
 }
 
 const GameDialog: React.FC<GameDialogProps> = ({ game, setSelectedGame }) => {
-  // Handle close
+  /** Handle close */
   const handleClose = (): void => {
     setSelectedGame(null)
   }
@@ -26,15 +26,14 @@ const GameDialog: React.FC<GameDialogProps> = ({ game, setSelectedGame }) => {
     .filter((category) => game.categories.includes(category.id))
     .sort((a, b) => a.order - b.order)
 
-  // Render a game's duration
+  /** Render a game's duration */
   const renderGameDuration = (
     minDurationMin: number,
     maxDurationMin: number,
   ): string => {
     // Single duration
-    if (minDurationMin === maxDurationMin) {
+    if (minDurationMin === maxDurationMin)
       return minDurationMin.toString() + " min"
-    }
 
     // Range of durations
     return minDurationMin.toString() + "-" + maxDurationMin.toString() + " min"

@@ -6,7 +6,7 @@ interface SuitProps {
 }
 
 const Suit: React.FC<SuitProps> = ({ index, className }) => {
-  // Render playing card suit based on the card's index value
+  /** Render playing card suit based on the card's index value */
   const renderSuit = (index: number): string => {
     const suits = ["♦️", "♠️", "♥️", "♣️"]
     const suitIndex = index % suits.length
@@ -14,11 +14,10 @@ const Suit: React.FC<SuitProps> = ({ index, className }) => {
     return suits[suitIndex]
   }
 
-  // Render either a red or a black color value based on the card's suit
+  /** Render either a red or a black color value based on the card's suit */
   const renderCardColor = (index: number): string => {
-    if (renderSuit(index) === "♦️" || renderSuit(index) === "♥️") {
+    if (renderSuit(index) === "♦️" || renderSuit(index) === "♥️")
       return "red-600"
-    }
 
     return "black"
   }

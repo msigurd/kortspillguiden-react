@@ -9,7 +9,7 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ filteredGames, setSelectedGame }) => {
-  // Render all card sections
+  /** Render all card sections */
   const renderCardSections = (filteredGames: Game[]): JSX.Element[] => {
     const cardSections: JSX.Element[] = []
 

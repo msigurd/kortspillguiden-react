@@ -34,17 +34,13 @@ const PlayerSelect: React.FC<PlayerSelectProps> = ({
     return Array.from(playerCountsSet).sort((a, b) => a - b)
   })()
 
-  // Render text for the amount of players
+  /** Render text for the amount of players */
   const renderPlayers = (players: number): string => {
-    if (players === 0) {
-      // Undefined player amount
-      return "Ubestemt"
-    }
+    // Undefined player amount
+    if (players === 0) return "Ubestemt"
 
-    if (players === 1) {
-      // One player
-      return players + " spiller"
-    }
+    // One player
+    if (players === 1) return players + " spiller"
 
     // Multiple players
     return players + " spillere"

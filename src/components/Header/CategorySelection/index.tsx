@@ -17,7 +17,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
   const [maxScroll, setMaxScroll] = useState(0)
   const [containerScrollLeft, setContainerScrollLeft] = useState(0)
 
-  // Handle container resize
+  /** Handle container resize */
   const handleResize = useCallback((): void => {
     // Set new max scroll based on current container width
     if (containerRef.current) {
