@@ -1,6 +1,4 @@
-# Kortspillguiden.no
-
-Besøk siden her: https://kortspillguiden.no/
+# Kortspillguiden
 
 ## Brukte teknologier
 
