@@ -1,3 +1,5 @@
+🗃️ Moved to: https://github.com/msigurd/kortspillguiden
+
 # Kortspillguiden
 
 ## Brukte teknologier
